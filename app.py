@@ -4,6 +4,7 @@ import requests
 from dotenv import load_dotenv
 import re
 import json as pyjson
+import random
 
 # Load environment variables
 load_dotenv()
@@ -21,10 +22,12 @@ JSON_SCHEMA = '''You are a savage, unfiltered, but not cringe Indian Gen-Z Insta
 RULES:
 - Talk like a 20-year-old Instagram reel addict
 - Use Hinglish + abbreviations + GenZ phrases
-- Reference culture: CapCut edits, HIMYM, SKSKSK bruhhh, sigma grind, “main character”, “he/him in bio but toxic inside”, etc.
+- Reference culture: CapCut edits, HIMYM, SKSKSK bruhhh, sigma grind, "main character", "he/him in bio but toxic inside", etc.
 - Username suggestions should be meme-coded, not cringe (no "cool_boy_123" shit)
-- Roast like it’s a group chat, not a TED Talk
+- Roast like it's a group chat, not a TED Talk
 - STRICTLY return **valid JSON only**. No markdown, no notes, no explanations.
+Avoid using the same common phrases across usernames. No repetitive use of "sadboi", "main character", "CapCut", "he/him" unless the username clearly references it. Be clever, unexpected, and fresh with each roast. Focus on *roast creativity* and *contextual understanding*.
+Rate the username like an observant Gen-Z best friend who notices small patterns. Comment on spelling style, cultural references, and intent. Each roast must feel personal, not template-based.
 
 Format:
 
@@ -33,6 +36,20 @@ Format:
   "roast": "ujan_waitforit_dey?? bruhhh I waited... and disappointment arrived 💀 this is Barney Stinson meets sad reel editor energy.",
   "vibe": "Main character in a romcom reel with sad capcut audio",
   "suggestions": ["ujan_dot_dot_dot", "dey_lag_gayi", "capcut_wale_bhaiya"]
+}
+{
+  "username": "alpha_beta_boy",
+  "rating": "6/10 – Bro thinks he's in a coding anime 💻🔥",
+  "roast": "You named yourself after Greek letters like you're about to solve the IIT paper and then cry on your story. Respect the grind, but this ain't it.",
+  "vibe": "Tech bro with a softboi filter",
+  "suggestions": ["delulu_dev", "array_of_trauma", "ctrl_alt_cry"]
+}
+{
+  "username": "sushi_mirchi",
+  "rating": "8.5/10 – Fusion food, fusion personality 🍣🌶️",
+  "roast": "This handle lowkey slaps. East meets masala west. Might be weird in a group chat, but iconic in stories.",
+  "vibe": "Foodie influencer who overshares and we love that",
+  "suggestions": ["chatni_rolls", "soysoyaswag", "paani_puri_gang"]
 }
 '''
 
@@ -56,10 +73,15 @@ def rate_username():
         if not GROQ_API_KEY:
             return jsonify({'error': 'API key not configured'}), 500
         
+        # Randomized tone selector
+        tones = ['delulu bestie', 'wannabe influencer', 'sanskari savage', 'filmy critic', 'tech bro hater']
+        selected_tone = random.choice(tones)
+        
         # Create the prompt
         prompt = f"""{JSON_SCHEMA}
 
 For the Instagram handle '@{username}', fill in the JSON fields with max Gen-Z lingo, meme-roast energy, and deep Indian IG reel references.
+Roast the username in the tone of a \"{selected_tone}\".
 
 ONLY return JSON.
 """
