@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Username Rater</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  <h1>IG Username Roaster <span style="font-size:1.3em;">🔥</span></h1>
+  <div class="card">
+    <form id="rateForm" autocomplete="off">
+      <div class="input-group">
+        <input type="text" id="username" placeholder="Enter your IG handle" maxlength="30" required pattern="^[A-Za-z0-9._]+$" />
+        <button type="submit">Rate Me</button>
+      </div>
+    </form>
+    <div class="output" id="output"></div>
+    <div class="typing" id="typing" style="display:none;">Thinking<span id="dots"></span></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 

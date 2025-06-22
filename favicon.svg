@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="skullGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f0f0f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="eyeGrad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#333333;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background circle for contrast -->
+  <circle cx="16" cy="16" r="15" fill="#0a0a0a" stroke="#ff0050" stroke-width="0.5"/>
+  
+  <!-- Main skull shape -->
+  <path d="M16 4 C22 4 26 8 26 14 C26 16 25.5 17.5 24.5 18.5 L24.5 22 C24.5 24 23 25.5 21 25.5 L11 25.5 C9 25.5 7.5 24 7.5 22 L7.5 18.5 C6.5 17.5 6 16 6 14 C6 8 10 4 16 4 Z" fill="url(#skullGrad)" stroke="#d0d0d0" stroke-width="0.3"/>
+  
+  <!-- Eye sockets -->
+  <ellipse cx="12.5" cy="12" rx="2.5" ry="3" fill="url(#eyeGrad)"/>
+  <ellipse cx="19.5" cy="12" rx="2.5" ry="3" fill="url(#eyeGrad)"/>
+  
+  <!-- Glowing eye dots -->
+  <circle cx="12.5" cy="11.5" r="0.8" fill="#ff0050" opacity="0.9">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="19.5" cy="11.5" r="0.8" fill="#ff0050" opacity="0.9">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Nasal cavity -->
+  <path d="M16 15 C15 15 14.5 16 14.5 17.5 C14.5 19 15 20 16 20 C17 20 17.5 19 17.5 17.5 C17.5 16 17 15 16 15 Z" fill="url(#eyeGrad)"/>
+  
+  <!-- Teeth/jaw line -->
+  <rect x="13" y="21" width="1.5" height="3" fill="#ffffff" rx="0.2"/>
+  <rect x="15.25" y="21.5" width="1.5" height="2.5" fill="#ffffff" rx="0.2"/>
+  <rect x="17.5" y="21" width="1.5" height="3" fill="#ffffff" rx="0.2"/>
+  
+  <!-- Cracks for character -->
+  <path d="M10 18 L12 16" stroke="#999" stroke-width="0.3" fill="none"/>
+  <path d="M22 18 L20 16" stroke="#999" stroke-width="0.3" fill="none"/>
+  <path d="M16 8 L16 10" stroke="#ccc" stroke-width="0.2" fill="none"/>
+</svg>
