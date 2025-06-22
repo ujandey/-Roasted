@@ -1,4 +1,4 @@
-# @Roasted Username Rater 🔥
+# @Roasted🔥
 
 A fun Gen Z-style web app that rates Instagram usernames using AI. Built with Flask backend and vanilla frontend.
 
